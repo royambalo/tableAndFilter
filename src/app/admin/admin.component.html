@@ -1,0 +1,24 @@
+<div fxLayout="row wrap" class="list-container">
+  <div class="table-wraper" fxLayout="row wrap" fxFlex="100">
+    <div fxFlex="100" fxLayout="row" fxLayoutAlign="space-between">
+      <h1>Admin</h1>
+      <button
+          class="list-button list-add-button"
+          mat-button
+          color="primary"
+          (click)="addOrEdit()"
+        >
+          Add
+        </button>
+    </div>
+    <app-admin-table
+      fxFlex="100"
+      *ngIf="dataSource"
+      (rowClicked)="addOrEdit($event)"
+      (delete)="deleteProd($event)"
+      [displayedColumns]="displayedColumns"
+      [data]="dataSource"
+    >
+    </app-admin-table>
+  </div>
+</div>

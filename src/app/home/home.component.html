@@ -1,0 +1,31 @@
+<div>
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <div style="display: flex;padding: 12px" *ngFor="let item of cart">
+      <h4>{{item.name}}</h4>
+      <h4>{{item.price}}</h4>
+    </div>
+    <div style="display: flex" class="menu">
+      <h4>Total-</h4>
+      <h4>{{total}}</h4>
+    </div>
+    <div class="menu">
+      <button  (click)="payCart()" mat-button color="primary">Pay</button>
+    </div>
+  </mat-menu>
+</div>
+<div class="container">
+  <mat-card *ngFor="let item of data" class="example-card">
+    <img  width="150px" src="{{item.image}}">
+    <mat-card-content>
+      <div>{{item.name}}</div>
+      <div>{{item.cat}}</div>
+      <div>{{item.price}}</div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="primary" (click)="addToCart(item)">Buy</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

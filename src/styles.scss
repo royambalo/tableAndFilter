@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+// Import library functions for theme creation.
+@import "~@angular/material/theming";
+
+// Include non-theme styles for core.
+@include mat-core();
+
+
+// Include theme styles for Angular Material components.
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex: 1;
+}
+.table-wraper {
+  background-color: white;
+}
+.table-cell--elipsis {
+  // padding-right: 2rem;
+  display: block;
+  width: auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mat-tooltip--width {
+  max-width: unset !important;
+}
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

@@ -1,0 +1,41 @@
+.app-container {
+  height: 100%;
+  .sidenav-container {
+    height: 100%;
+  }
+  .side-nav {
+    height: 100%;
+    width: 16rem;
+    &.closed {
+      transform: translate3d(0, 0, 0) !important;
+      width: 3rem;
+      overflow-x: hidden !important;
+      visibility: visible !important;
+    }
+  }
+.mat-menu{
+  width: 30%;
+  height: fit-content;
+
+}
+  .main-content {
+    padding-left: 256px;
+    &.closed {
+      padding-left: 3rem;
+    }
+  }
+
+}
+.table-container{
+  width: 90%;
+}
+.container-filter{
+  width: 90%;
+  padding: 2%;
+  display: flex;
+  column-gap: 12px;
+  button{
+    height: 63px;
+  }
+
+}

@@ -1,0 +1,13 @@
+.department-form {
+  row-gap: 2rem;
+  .radio-container {
+    font-size: 1.3rem;
+  }
+}
+.dialog-button {
+  padding: 0 4rem;
+  font-size: 1.5rem;
+  &--cancel {
+    margin: 0 1rem;
+  }
+}

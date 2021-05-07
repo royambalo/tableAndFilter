@@ -1,1 +1,91 @@
-<p>admin-table works!</p>
+<ng-container *ngIf="!!data.length; else noResults">
+  <mat-table
+    fxFlex
+    class="table-height"
+    [dataSource]="data"
+  >
+    <!-- Position Column -->
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef >
+        Title
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element"
+      ><span
+        class="table-cell--elipsis"
+        [matTooltip]="element.name"
+        matTooltipClass="mat-tooltip--width"
+      >{{ element.name }}</span
+      >
+      </mat-cell>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="price">
+      <mat-header-cell *matHeaderCellDef >
+        Price
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <span
+          class="table-cell--elipsis"
+          [matTooltip]="element.price"
+          matTooltipClass="mat-tooltip--width"
+        >
+          {{ element.price }}</span
+        >
+      </mat-cell>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="description">
+      <mat-header-cell *matHeaderCellDef >
+        Description
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+          <span
+            class="table-cell--elipsis"
+            [matTooltip]="element.description"
+            matTooltipClass="mat-tooltip--width"
+          >
+          {{ element.cat }}</span
+          >
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef >
+        Image
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <img style="height: 40px;object-fit: contain;" src="{{element.image}}" >
+      </mat-cell>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="option">
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="table-actions">
+        Options
+      </mat-header-cell>
+      <mat-cell *matCellDef="let element" class="table-actions">
+        <button mat-button (click)="rowClicked.next(element)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-button (click)="delete.next(element)">
+          <mat-icon>delete_forever</mat-icon>
+        </button>
+
+      </mat-cell>
+    </ng-container>
+
+
+    <mat-header-row
+      *matHeaderRowDef="displayedColumns; sticky: true"
+    ></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</ng-container>
+
+<ng-template #noResults>
+  <h2 fxFlex="100" fxLayoutAlign="center">
+    There is no result
+  </h2>
+</ng-template>
